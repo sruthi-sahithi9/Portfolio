@@ -13,7 +13,7 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setStatus('error');
@@ -24,13 +24,47 @@ export default function Contact() {
 
     setStatus('sending');
 
-    // Simulate database write or API endpoint call
-    setTimeout(() => {
-      setStatus('success');
-      setToastMessage('Thank you! Your message was sent successfully.');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus('idle'), 4000);
-    }, 1500);
+    // To receive email messages, create a free account on https://formspree.io/ 
+    // and replace the placeholder ID below with your actual form ID (e.g. "xbjnyqvo")
+    const FORMSPREE_ID = "YOUR_FORMSPREE_ID";
+
+    if (FORMSPREE_ID !== "YOUR_FORMSPREE_ID") {
+      try {
+        const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          })
+        });
+
+        if (response.ok) {
+          setStatus('success');
+          setToastMessage('Thank you! Your message was sent successfully.');
+          setFormData({ name: '', email: '', message: '' });
+          setTimeout(() => setStatus('idle'), 4000);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        setStatus('error');
+        setToastMessage('Oops! There was a problem sending your message.');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } else {
+      // Simulate database write or API endpoint call locally
+      setTimeout(() => {
+        setStatus('success');
+        setToastMessage('Thank you! Your message was sent successfully (simulation).');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 4000);
+      }, 1500);
+    }
   };
 
   const contactDetails = [
@@ -178,7 +212,7 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="John Doe"
+                  placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] dark:focus:ring-[#00f0ff] transition-all"
                   required
                 />
@@ -194,7 +228,7 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="john@example.com"
+                  placeholder="Your Email Address"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] dark:focus:ring-[#00f0ff] transition-all"
                   required
                 />
@@ -210,7 +244,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  placeholder="How can I help you?"
+                  placeholder="Your Message..."
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] dark:focus:ring-[#00f0ff] transition-all resize-none"
                   required
                 ></textarea>
