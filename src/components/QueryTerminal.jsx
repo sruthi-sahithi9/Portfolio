@@ -17,9 +17,14 @@ export default function QueryTerminal() {
   const [inputVal, setInputVal] = useState('');
   const [isSimulating, setIsSimulating] = useState(false);
   const terminalEndRef = useRef(null);
+  const isFirstMount = useRef(true);
 
   useEffect(() => {
-    // Scroll to bottom on updates
+    // Scroll to bottom on updates, but bypass on initial mount to prevent page auto-scrolling
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
 
