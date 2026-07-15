@@ -24,34 +24,51 @@ export default function Contact() {
 
     setStatus('sending');
 
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/sruthisahithi118@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `New Portfolio Message from ${formData.name}`,
-          _template: "table"
-        })
-      });
+    // To receive email messages, get a free Access Key at https://web3forms.com/
+    // and replace the placeholder below with your key (e.g. "5023961d-df9d-4767-8ccb-...")
+    const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
 
-      if (response.ok) {
+    if (WEB3FORMS_ACCESS_KEY !== "YOUR_ACCESS_KEY_HERE") {
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            subject: `New Portfolio Message from ${formData.name}`,
+            from_name: "Portfolio Contact Form"
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          setStatus('success');
+          setToastMessage('Thank you! Your message was sent successfully.');
+          setFormData({ name: '', email: '', message: '' });
+          setTimeout(() => setStatus('idle'), 4000);
+        } else {
+          throw new Error(data.message || 'Web3Forms submission failed');
+        }
+      } catch (error) {
+        setStatus('error');
+        setToastMessage('Oops! There was a problem sending your message.');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } else {
+      // Simulate database write or API endpoint call locally when no key is set
+      setTimeout(() => {
         setStatus('success');
-        setToastMessage('Thank you! Your message was sent successfully.');
+        setToastMessage('Thank you! Your message was sent successfully (simulation).');
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setStatus('idle'), 4000);
-      } else {
-        throw new Error('FormSubmit submission failed');
-      }
-    } catch (error) {
-      setStatus('error');
-      setToastMessage('Oops! There was a problem sending your message.');
-      setTimeout(() => setStatus('idle'), 4000);
+      }, 1500);
     }
   };
 
