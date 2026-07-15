@@ -26,7 +26,7 @@ export default function Contact() {
 
     // To receive email messages, get a free Access Key at https://web3forms.com/
     // and replace the placeholder below with your key (e.g. "5023961d-df9d-4767-8ccb-...")
-    const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+    const WEB3FORMS_ACCESS_KEY = "f1a01aca-309b-439a-a37c-6312a84b1929";
 
     if (WEB3FORMS_ACCESS_KEY !== "YOUR_ACCESS_KEY_HERE") {
       try {
