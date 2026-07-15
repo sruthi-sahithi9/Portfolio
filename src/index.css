@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', 'Poppins', sans-serif;
   --color-primary-navy: #0a192f;

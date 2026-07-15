@@ -58,7 +58,7 @@ export default function ResumeSection() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-950 dark:text-white font-sans">
-                  Curriculum Vitae Highlights
+                  Resume Highlights
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
                   Bandaru Sruthi Sahithi — Data Analyst Intern
