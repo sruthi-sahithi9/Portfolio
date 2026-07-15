@@ -24,46 +24,34 @@ export default function Contact() {
 
     setStatus('sending');
 
-    // To receive email messages, create a free account on https://formspree.io/ 
-    // and replace the placeholder ID below with your actual form ID (e.g. "xbjnyqvo")
-    const FORMSPREE_ID = "YOUR_FORMSPREE_ID";
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/sruthisahithi118@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}`,
+          _template: "table"
+        })
+      });
 
-    if (FORMSPREE_ID !== "YOUR_FORMSPREE_ID") {
-      try {
-        const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message
-          })
-        });
-
-        if (response.ok) {
-          setStatus('success');
-          setToastMessage('Thank you! Your message was sent successfully.');
-          setFormData({ name: '', email: '', message: '' });
-          setTimeout(() => setStatus('idle'), 4000);
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (error) {
-        setStatus('error');
-        setToastMessage('Oops! There was a problem sending your message.');
-        setTimeout(() => setStatus('idle'), 4000);
-      }
-    } else {
-      // Simulate database write or API endpoint call locally
-      setTimeout(() => {
+      if (response.ok) {
         setStatus('success');
-        setToastMessage('Thank you! Your message was sent successfully (simulation).');
+        setToastMessage('Thank you! Your message was sent successfully.');
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setStatus('idle'), 4000);
-      }, 1500);
+      } else {
+        throw new Error('FormSubmit submission failed');
+      }
+    } catch (error) {
+      setStatus('error');
+      setToastMessage('Oops! There was a problem sending your message.');
+      setTimeout(() => setStatus('idle'), 4000);
     }
   };
 
