@@ -6,9 +6,7 @@ import { FiDownload } from 'react-icons/fi';
 const roles = [
   'Data Analyst',
   'Team Leader',
-  'SQL & Database Developer',
-  'Python Programmer',
-  'Cyber Security Student'
+  'SQL & Database Developer'
 ];
 
 export default function Hero() {
