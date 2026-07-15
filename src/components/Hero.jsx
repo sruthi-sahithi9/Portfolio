@@ -5,10 +5,10 @@ import { FiDownload } from 'react-icons/fi';
 
 const roles = [
   'Data Analyst',
-  'Cyber Security Student',
-  'Business Intelligence Developer',
+  'Team Leader',
+  'SQL & Database Developer',
   'Python Programmer',
-  'SQL & Database Enthusiast'
+  'Cyber Security Student'
 ];
 
 export default function Hero() {
@@ -87,9 +87,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl font-sans"
+            className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl font-sans leading-relaxed"
           >
-            Transforming Data into Business Insights. Data Analytics Intern specializing in Python, SQL, Power BI, and Cyber Security. Passioned about building interactive dashboards and solving complex technical puzzles.
+            I turn raw data into decisions — through Python, SQL, and dashboards built on real business problems.
+            <br /><br />
+            Open to full-time Data Analyst roles and Data Analyst internship opportunities. Let's talk.
           </motion.p>
 
           {/* Call to Actions */}
