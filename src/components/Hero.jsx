@@ -163,7 +163,7 @@ export default function Hero() {
             
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-slate-200 to-slate-300 dark:from-[#00f0ff] dark:to-indigo-600">
               <img
-                src="/avatar.jpg"
+                src="./avatar.jpg"
                 alt="Bandaru Sruthi Sahithi"
                 className="w-full h-full object-cover rounded-full bg-slate-900 border-4 border-white dark:border-[#0a192f]"
               />

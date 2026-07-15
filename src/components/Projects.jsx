@@ -6,7 +6,7 @@ import { FiTrendingUp } from 'react-icons/fi';
 const projects = [
   {
     title: 'Twitter Sentiment Analysis',
-    image: '/images/netflix_churn.jpg',
+    image: './images/netflix_churn.jpg',
     description: 'A machine learning and data analysis pipeline that preprocesses raw tweets to extract emotional intelligence, hashtags, and emoji distributions.',
     technologies: ['Python', 'Pandas', 'NLTK', 'Regex', 'Scikit-Learn', 'Matplotlib'],
     businessInsights: 'Evaluated model performance using Accuracy, F1-Score, ROC curve, and confusion matrix, adding custom emoji sentiment mapping layers for enhanced insight resolution.',
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: 'Sales & E-commerce Analytics',
-    image: '/images/sales_retail.jpg',
+    image: './images/sales_retail.jpg',
     description: 'Interactive commercial reporting dashboard that tracks retail revenues, e-commerce growth rates, and region-wise profitability.',
     technologies: ['Power BI', 'SQL', 'Python', 'A/B Testing', 'Excel'],
     businessInsights: 'Delivered insights on retail sales trends and landing page experiments, identifying underperforming regions to boost resource reallocation ROI.',
@@ -24,7 +24,7 @@ const projects = [
   },
   {
     title: 'Student Performance Dashboard',
-    image: '/images/student_hr.jpg',
+    image: './images/student_hr.jpg',
     description: 'An interactive analytical dashboard tracking student grades, attendance patterns, and overall academic performance metrics.',
     technologies: ['Power BI', 'DAX', 'Excel', 'Data Cleaning'],
     businessInsights: 'Identified key correlations between low attendance and academic risks, enabling school systems to execute early counseling interventions.',
@@ -33,7 +33,7 @@ const projects = [
   },
   {
     title: 'Customer Churn Analysis',
-    image: '/images/netflix_churn.jpg',
+    image: './images/netflix_churn.jpg',
     description: 'Exploratory data analysis and predictive indicators pointing out telecom customer churn based on historical usage plans.',
     technologies: ['Python', 'Pandas', 'NumPy', 'SQLite', 'Statistics'],
     businessInsights: 'Uncovered that users on month-to-month contracts had a 42% higher churn risk, suggesting custom retention packages and landing page optimization.',
@@ -42,7 +42,7 @@ const projects = [
   },
   {
     title: 'HR Attrition Dashboard',
-    image: '/images/student_hr.jpg',
+    image: './images/student_hr.jpg',
     description: 'Workforce analysis dashboard focusing on employee retention, tenure distributions, performance ratings, and attrition trends.',
     technologies: ['Power BI', 'DAX', 'SQL Server', 'Excel'],
     businessInsights: 'Revealed that employees with tenure between 2-3 years in technical roles had a 30% higher attrition rate due to salary gaps.',
@@ -51,7 +51,7 @@ const projects = [
   },
   {
     title: 'Retail Inventory Dashboard',
-    image: '/images/sales_retail.jpg',
+    image: './images/sales_retail.jpg',
     description: 'Business Intelligence dashboard displaying inventory turnover, sales growth, and supplier performance indicators for a retail brand.',
     technologies: ['Tableau', 'SQL', 'Excel', 'Python'],
     businessInsights: 'Optimized inventory stocking rates for top 10 products, reducing warehousing carry costs by 12% without stock-outs.',

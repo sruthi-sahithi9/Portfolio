@@ -79,14 +79,14 @@ export default function ResumeSection() {
           {/* Card right: CTA buttons */}
           <div className="w-full md:w-auto shrink-0 flex flex-col sm:flex-row md:flex-col gap-4">
             <a
-              href="/resume.pdf"
+              href="./resume.pdf"
               download="Bandaru_Sruthi_Sahithi_Resume.pdf"
               className="w-full md:w-56 px-6 py-4 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-[#00f0ff] dark:to-indigo-600 dark:hover:from-[#00f0ff] dark:hover:to-[#00f0ff] hover:opacity-95 shadow-md flex items-center justify-center gap-2 cursor-pointer border border-slate-700/50 dark:border-none transition-all duration-300 transform hover:-translate-y-0.5"
             >
               <Download className="w-4 h-4" /> Download Resume (PDF)
             </a>
             <a
-              href="/resume.pdf"
+              href="./resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full md:w-56 px-6 py-4 rounded-2xl text-sm font-bold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-all duration-300 transform hover:-translate-y-0.5"
