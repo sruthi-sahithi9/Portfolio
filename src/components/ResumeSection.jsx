@@ -91,7 +91,7 @@ export default function ResumeSection() {
               rel="noopener noreferrer"
               className="w-full md:w-56 px-6 py-4 rounded-2xl text-sm font-bold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              <Eye className="w-4 h-4 text-indigo-500" /> Preview CV Online
+              <Eye className="w-4 h-4 text-indigo-500" /> Preview Resume Online
             </a>
           </div>
         </motion.div>
