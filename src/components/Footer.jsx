@@ -14,7 +14,7 @@ export default function Footer() {
             <span className="text-[#0ea5e9]">Sahithi</span>
           </p>
           <p className="text-xs text-slate-450 dark:text-slate-500 mt-1 font-medium font-sans">
-            Data Analyst & Cyber Security Student
+            Data Analyst
           </p>
         </div>
 
